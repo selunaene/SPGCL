@@ -1,6 +1,6 @@
-import torch
+import torch     //import相当于c中include的意思   //torch是一个深度学习的库，提供从张量运算到神经网络构建和训练的一整套工具
 import math
-import os
+import os    //os是一个与操作系统进行交互的标准库
 import copy
 import numpy as np
 from lib.utils import get_logger, evaluation, makedirs, MAPE, masked_mape_np
@@ -16,7 +16,7 @@ class SPGCLTrainer(object):
     Standard SPGCL trainer
     """
 
-    def __init__(self, model, loss, optimizer, train_loader, val_loader, test_loader, scaler, args):
+    def __init__(self, model, loss, optimizer, train_loader, val_loader, test_loader, scaler, args):    //__init__是一种特殊方法，后面的是参数a，这个方法可以将a参数赋值给对象属性，通过self.a
         super(SPGCLTrainer, self).__init__()
         self.model = model
         self.predict_loss = loss
@@ -35,7 +35,7 @@ class SPGCLTrainer(object):
         self.dynamic_delta = args.delta
         self.dynamic_delta_negative = args.delta_negative
 
-        # The largest number of edges: N * density > init + positive_per_K * round
+        # The largest number of edges: N * density > init + positive_per_K * round   //#是一个添加注释的作用，类似C中的“//”
         self.round_max = int((self.args.eta * self.args.num_nodes - self.args.positives) / self.args.positive_per_K)
 
         if self.args.sparse:  # mask does not need gradient
