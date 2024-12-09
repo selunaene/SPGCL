@@ -3,7 +3,7 @@ import math
 import os
 import copy
 import numpy as np
-from lib.utils import get_logger, evaluation, makedirs, MAPE, masked_mape_np
+from lib.utils import get_logger, evaluation, makedirs, MAPE, masked_mape_np    //也就是将lib.utils这一个模块中的内容（可以是函数、类、变量等）导入到当前命名空间
 from torch.utils.tensorboard import SummaryWriter
 from lib.adj_from_loc import dense_adj_from_mean, sparse_adj_from_mean, sparse_adj_from_KNN, sparse_adj_from_KFF
 from sklearn.metrics import mean_squared_error, mean_absolute_error, explained_variance_score, r2_score
