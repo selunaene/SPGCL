@@ -47,7 +47,7 @@ class SPGCLTrainer(object):
         self.init_graph = self.graph
         self.init_n_graph = self.graph_negative
 
-        self.graph_times = torch.zeros([self.graph.shape[0], self.graph.shape[0]]).cuda()
+        self.graph_times = torch.zeros([self.graph.shape[0], self.graph.shape[0]]).cuda()    //torch是一个用于科学计算的库，主要用于深度学习。提供张量（类似于多维数组）以及用于构建和训练神经网络的模块和类
         self.scaler = scaler
         self.train_per_epoch = len(train_loader)
 
