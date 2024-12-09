@@ -56,8 +56,8 @@ class SPGCLTrainer(object):
         self.best_path = os.path.join(self.args.save_dir, 'best_model.pth')  //os是标准库，提供与操作系统进行交互的功能
 
         if self.args.writer and self.args.mode == "train":   //args参数
-            runs_dir = os.path.join(self.args.save_dir, 'runs', time.strftime("%m%d-%H-%M"))
-            makedirs(runs_dir)
+            runs_dir（可能是用来指代储存多次运行相关文件） = os.path.join(self.args.save_dir, 'runs', time.strftime("%m%d-%H-%M"))
+            makedirs(runs_dir)    //makedirs可以递归地创建目录，即一次性创建多层目录结构
             self.writer = SummaryWriter(runs_dir)
             self.embedding_e_counter = 1
         self.pre_counter = 1
