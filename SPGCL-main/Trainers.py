@@ -52,10 +52,10 @@ class SPGCLTrainer(object):
         self.train_per_epoch = len(train_loader)
 
         if val_loader is not None and test_loader is not None:
-            self.val_per_epoch = len(val_loader) if self.val_loader else len(test_loader)
-        self.best_path = os.path.join(self.args.save_dir, 'best_model.pth')
+            self.val_per_epoch（？可能意思是每个周期的验证 val=validation验证 per epoch每个周期） = len(val_loader) if self.val_loader else len(test_loader)    //len是一个内置函数，主要用于返回一个容器（字符串、列表、元组、字典、集合等）中的元素个数
+        self.best_path = os.path.join(self.args.save_dir, 'best_model.pth')  //os是标准库，提供与操作系统进行交互的功能
 
-        if self.args.writer and self.args.mode == "train":
+        if self.args.writer and self.args.mode == "train":   //args参数
             runs_dir = os.path.join(self.args.save_dir, 'runs', time.strftime("%m%d-%H-%M"))
             makedirs(runs_dir)
             self.writer = SummaryWriter(runs_dir)
